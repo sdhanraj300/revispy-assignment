@@ -6,10 +6,8 @@ const prisma = new PrismaClient();
 
 export async function POST(req: Request) {
   try {
-    const { email, password } = await req.json();
-    // console.log("Signup request:", { email, password, interestedCategories });
-    // Validate input
-    if (!email || !password) {
+    const { email, password, name } = await req.json();
+    if (!email || !password || !name) {
       return NextResponse.json(
         { error: "Invalid input data" },
         { status: 400 }
@@ -33,6 +31,7 @@ export async function POST(req: Request) {
       data: {
         email,
         password: hashedPassword,
+        name,
         // interestedCategories, // Should be an array of category IDs (MongoDB supports arrays)
       },
     });

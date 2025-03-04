@@ -33,7 +33,7 @@ export default function Signup() {
           type="string"
           placeholder="Enter"
           value={name}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
           className="w-full mb-3 p-2 border rounded"
         />
       </div>

@@ -28,6 +28,7 @@ export default function InterestsPage() {
         };
         fetchInterests();
     }, [session]);
+    const router = useRouter();
 
     const [page, setPage] = useState(1);
     const itemsPerPage = 6;
@@ -62,7 +63,6 @@ export default function InterestsPage() {
         return <div>Loading...</div>
     }
     if (!session) {
-        const router = useRouter();
         router.push("/login");
         return <div>Redirecting...</div>
     }
